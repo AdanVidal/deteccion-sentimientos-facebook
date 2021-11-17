@@ -17,20 +17,9 @@
 
 <body>
     <h1>Iniciar sesión en Facebook para detectar Emociones</h1>
-    <h2>hola banda</h2>
-    <a href="#" id="login" class="btn btn-primary">Iniciar sesión F</a>
-  <script>
-        //Loas the sdk asynchronously
-        (function(d, s, id){
-            var js, fjs=d.getElementsByTagName(s)[0];
-            if(d.getElementsById(id)) return;
-            js=d.createElement(s); js.id=id;
-            js.src="https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js,fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-  <!--  <script>
-    
+    <h1>Iniciar sesión en Facebook para detectar Emociones</h1>
+    <script>
+
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
     console.log(response);                   // The current login status of the person.
@@ -53,7 +42,6 @@
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '4850449488299795',
-      status     : true,
       cookie     : true,                     // Enable cookies to allow the server to access the session.
       xfbml      : true,                     // Parse social plugins on this webpage.
       version    : 'v12.0'           // Use this Graph API version for this call.
@@ -68,12 +56,7 @@
   function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      console.log('Holaaaa: ' + response.name);
-      $('#login').after(div_session);
-          $('#login').remove();
-          $('#facebook-session strong').text("Bienvenido: "+response.name);
-          $('#facebook-session img').attr('src','http://graph.facebook.com/'+
-                  response.id + '/picture?type=large');
+      console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
     });
@@ -81,64 +64,16 @@
 
 </script>
 
+
+<!-- The JS SDK Login Button -->
+
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
 </div>
 
-
-<button >iniciar</button>
-    <a href="#" id="login" class="btn btn-primary">Iniciar sesión</a>
-    <script>
-        //Loas the sdk asynchronously
-        (function(d, s, id){
-            var js, fjs=d.getElementsByTagName(s)[0];
-            if(d.getElementsById(id)) return;
-            js=d.createElement(s); js.id=id;
-            js.src="https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js,fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-<!--
-<button onclick="onLogin();">Iniciar sesion con facebook </button>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '4850449488299795',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v12.0'
-    });
-      
-    FB.AppEvents.logPageView();   
-      
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-  function onLogin(){
-	  FB.login((response)=>{
-		  if(response.authResponse){
-			  FB.api('/me?fields=email, name, picture',(response)=>{
-				  console.log(response)
-			  })
-		  }
-	  })
-  }
-    (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
--->
+<!-- Load the JS SDK asynchronously -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 </html>
